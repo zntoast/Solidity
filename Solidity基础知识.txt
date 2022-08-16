@@ -1,0 +1,56 @@
+
+ 关键字  
+ private  : 在定义该合约内部可见,不能被继承的合约调用。
+ public   : 任意访问。
+ internal : 可以被当前合约内部以及继承的合约调用。
+ external : 只能从合约外部调用。
+ view     : 标识函数只读取合约内部状态，不会更改和保持任何数据。
+ pure     : 标识函数为纯代码，告诉我们这个函数不但不会往区块链写数据，它甚至不从区块链读取数据。
+ constant : view的旧版本，与其等价。
+  
+
+ 基本数据类型
+ string : 字符串类型
+ uint    : 无符号整数型,无负数 (默认uint256) uint8、uint16、uint24 至 uint256
+ int     : 有符号整型，有正有负(默认int256) int8、int16、int24至 int256
+ address : 地址类型 ，是一个160位的值，不允许任何算法运算。存储合约的地址
+ 
+ 动态长度字节数组
+  	bytes的初始化-new bytes
+ 	获取bytes的长度和内容
+ 	修改长度和内容
+
+ string
+ 	不能直接获取长度和内容
+ 	需要转化为bytes获取长度和内容
+ 	特殊字符的长度的内容和获取
+ 	中午字符占用3个字节
+
+ 固定长度字节数组之间转换
+ 	转小从头截取，转大末尾补零
+ 
+ 固定长度转可变长度数组
+ 	利用new bytes(),然后循环转换 
+
+ 合约结构--------------------------------------------------
+ 状态变量：是永久地存储在合约存储中的值
+  	uint storedData; // 状态变量
+
+ 函数 ： 是合约中代码的可执行单元
+ function bid() public payable{}  // 函数
+
+ 函数修饰器: 可以用来以声明的方式改良函数语义
+ modifier onlySeller(){}  // 修饰器
+ function abort() public onlySeller {}
+
+ 事件 ： 是以太坊虚拟机日志工具的方便接口
+ event HighestBidIncreased(address bidder,uint amount); // 事件
+ 
+ 结构类型 ： 可以将几个变量分组的自定义类型
+ struct Voter{  // 结构
+   uint weight ; 
+ }
+
+ 枚举类型 ：可以用来创建有一定数据的值的自定义类型
+   enum State{ Created , locked , Inactive} // 枚举
+
