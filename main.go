@@ -4,10 +4,10 @@ import (
 	"errors"
 	"fmt"
 	_ "go_example/conf"
-	q "go_example/query"
+	ke "go_example/invoke"
 
 	"github.com/spf13/viper"
-	"github.com/xuperchain/xuper-sdk-go/account"
+	"github.com/xuperchain/xuper-sdk-go/v2/account"
 	"github.com/xuperchain/xuper-sdk-go/v2/xuper"
 )
 
@@ -36,8 +36,16 @@ func init() {
 }
 
 func main() {
-	q.QueryAccountBalance(client, acc)
-	q.QueryAccountContracts(client, "XC1111111111111111@xuper")
-	q.QueryAccountAcl(client, "XC2222222222222222@xuper")
-	q.QueryAccount(client, "TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY")
+	// q.QueryAccountBalance(client, acc)
+	// q.QueryAccountBalanceDetail(client, acc.Address)
+	// q.QueryAccountContracts(client, "XC1111111111111111@xuper")
+	// q.QueryAccountAcl(client, "XC2222222222222222@xuper")
+	// q.QueryAccount(client, "TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY")
+	// q.QueryContractAddress(client, "TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY")
+	// q.QueryBlockChain(client)
+	// q.QueryEVNContract(client, acc, contractName)
+	// q.QuerySystemsStatus(client)
+	// q.QueryNetURL(client)
+	ke.InvokeChairperson(client, acc, contractName)
+	ke.InvokegiveRightToVote(client, acc, contractName)
 }

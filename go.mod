@@ -4,7 +4,6 @@ go 1.19
 
 require (
 	github.com/spf13/viper v1.12.0
-	github.com/xuperchain/xuper-sdk-go v1.1.0
 	github.com/xuperchain/xuper-sdk-go/v2 v2.0.0
 )
 
